@@ -24,10 +24,10 @@ extension Publishers {
         public typealias Failure = Upstream.Failure
         
         /// The publisher from which this publisher receives elements.
-        public var upstream: Upstream
+        public var upstream : Upstream
         
         /// The translater that translates input type to output type.
-        public var translator: Translator
+        public var translator : Translator
         
         public init(upstream: Upstream, translator: Translator) {
             self.upstream = upstream
