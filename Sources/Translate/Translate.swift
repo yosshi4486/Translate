@@ -8,7 +8,6 @@
 import Combine
 
 /// A publisher that translates all elements from the upstream publisher with provided translator.
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct Translate<Upstream, Translator> : Publisher where Upstream : Publisher, Translator : TopLevelTranslator, Upstream.Output == Translator.Input {
     
     public func receive<S>(subscriber: S) where S : Subscriber, Self.Failure == S.Failure, Self.Output == S.Input {
@@ -16,6 +15,7 @@ public struct Translate<Upstream, Translator> : Publisher where Upstream : Publi
         upstream
             .map({ self.translator.translate(from: $0)} )
             .receive(subscriber: subscriber)
+        
     }
     
     public typealias Output = Translator.Output
@@ -34,7 +34,6 @@ public struct Translate<Upstream, Translator> : Publisher where Upstream : Publi
 
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public extension Publishers.Map {
     
     /// Translates all elements from the upstream publisher with provided translator.
@@ -42,7 +41,6 @@ public extension Publishers.Map {
 
 }
 
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension Publishers.MapError {
     
     /// Translates all elements from the upstream publisher with provided translator.
