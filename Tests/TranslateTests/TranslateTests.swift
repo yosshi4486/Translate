@@ -20,6 +20,17 @@ final class TranslateTests: XCTestCase {
                 XCTAssertEqual(result, "123")
         }
     }
+    
+    func testTranslateIntCollectionToStringColelction() {
+        _ = [[1, 2, 3], [4, 5, 6]]
+            .publisher
+            .translates(translator: IntegerToStringTranslator())
+            .collect()
+            .map { $0.flatMap { $0 }.reduce("", { $0 + $1 }) } // sum all values in the array.
+            .sink(receiveValue: { (result) in
+                XCTAssertEqual(result, "123456")
+            })
+    }
 
     static var allTests = [
         ("testExample", testTranslateIntToString),
