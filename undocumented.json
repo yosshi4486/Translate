@@ -1,0 +1,19 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/runner/runners/2.165.2/work/Translate/Translate/Sources/Translate/Translate.swift",
+      "line": 32,
+      "symbol": "Publishers.Translate.init(upstream:translator:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/runners/2.165.2/work/Translate/Translate/Sources/Translate/TranslateCollection.swift",
+      "line": 36,
+      "symbol": "Publishers.TranslateCollection.init(upstream:translator:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/runner/runners/2.165.2/work/Translate/Translate"
+}

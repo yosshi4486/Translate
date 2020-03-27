@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html"> Docs</a> (91% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html"> Reference</a>
+        <img id="carat" src="img/carat.png" />
+          Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/Publisher.html">Publisher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Publishers.html">Publishers</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Publishers/Translate.html">– Translate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Publishers/TranslateCollection.html">– TranslateCollection</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/TopLevelTranslator.html">TopLevelTranslator</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='translate' class='heading'>Translate</h1>
+
+<p>A publisher that translates all elements from the upstream publisher with provided translator.</p>
+<h2 id='goal' class='heading'>Goal</h2>
+
+<p>The goal of this project is <strong>translating publisher&rsquo;s elements</strong> like <code>decode(type: decoder:)</code> that Combine provided. <strong>I especially want to support translation for layered architecure data mapping.</strong></p>
+<h2 id='how-to-use' class='heading'>How to use</h2>
+<h3 id='1-declare-concrete-type-of-code-topleveltranslator-code' class='heading'>1. Declare concrete type of <code><a href="Protocols/TopLevelTranslator.html">TopLevelTranslator</a></code></h3>
+<pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">IntegerToStringTranslator</span><span class="p">:</span> <span class="kt">TopLevelTranslator</span> <span class="p">{</span>
+
+    <span class="kd">func</span> <span class="nf">translate</span><span class="p">(</span><span class="n">from</span> <span class="nv">input</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">String</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id='2-use-code-translate-translator-code-operator-and-pass-an-instance-of-your-concrete-translator' class='heading'>2. Use <code>.translate(translator:)</code> operator and pass an instance of your concrete translator</h3>
+<pre class="highlight swift"><code> <span class="n">_</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+            <span class="o">.</span><span class="n">publisher</span>
+            <span class="o">.</span><span class="nf">translate</span><span class="p">(</span><span class="nv">translator</span><span class="p">:</span> <span class="kt">IntegerToStringTranslator</span><span class="p">())</span> <span class="c1">// Translate int to string.</span>
+            <span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">reduce</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="p">{</span> <span class="nv">$0</span> <span class="o">+</span> <span class="nv">$1</span> <span class="p">})}</span> <span class="c1">// sum all values in the array.</span>
+            <span class="o">.</span><span class="n">sink</span> <span class="p">{</span> <span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="k">in</span> <span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="p">}</span>
+</code></pre>
+<h2 id='requirements' class='heading'>Requirements</h2>
+
+<ul>
+<li>iOS13, macOS10.15, tvOS 13, or watchOS 6 later</li>
+<li>Swift 5.2</li>
+<li>Xcode11.4</li>
+</ul>
+<h2 id='instllation' class='heading'>Instllation</h2>
+
+<p>The preferred way of installing <strong>Translate</strong> is via the Swift Package Manager.</p>
+
+<ol>
+<li>In Xcode, open your project and navigate to <strong>File</strong> → <strong>Swift Packages</strong> → <strong>Add Package Dependency&hellip;</strong></li>
+<li>Paste the repository URL(<code>https://github.com/yosshi4486/Translate.git</code>) and click <strong>Next.</strong></li>
+<li>For <strong>Rules</strong>, select Branch(with branch set to <code>master</code>).</li>
+<li>Click <strong>Finish.</strong></li>
+</ol>
+<h2 id='contributing' class='heading'>Contributing</h2>
+
+<p>Translate is and will always be free and open. I&rsquo;d appriciate it if you cloud contribute to this project. </p>
+
+<p>Correcting english is very helpful to us :bow:</p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>Translate is licensed under the <a href="https://github.com/yosshi4486/Translate/blob/master/README.md">MIT License</a></p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-03-27)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
