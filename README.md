@@ -42,5 +42,7 @@ The preferred way of installing **Translate** is via the Swift Package Manager.
 ## Contributing
 Translate is and will always be free and open. I'd appriciate it if you cloud contribute to this project. 
 
+Correcting english is very helpful to us :bow:
+
 ## License
 Translate is licensed under the [MIT License](https://github.com/yosshi4486/Translate/blob/master/README.md)
