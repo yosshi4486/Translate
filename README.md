@@ -29,7 +29,7 @@ struct IntegerToStringTranslator: TopLevelTranslator {
 ## Requirements
 - iOS13, macOS10.15, tvOS 13, or watchOS 6 later
 - Swift 5.2
-- Xcode11
+- Xcode11.4
 
 ## Instllation
 The preferred way of installing **Translate** is via the Swift Package Manager.
