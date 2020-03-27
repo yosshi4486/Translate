@@ -42,7 +42,7 @@ extension Publishers {
 
 }
 
-extension Publisher {
+public extension Publisher {
     
     /// Translates all elements that are collection from the upstream publisher with provided translator.
     func translates<Translator : TopLevelTranslator>(translator: Translator) -> Publishers.TranslateCollection<Self, Translator> where Self.Output : Collection,  Self.Output.Element == Translator.Input {
