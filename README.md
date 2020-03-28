@@ -26,6 +26,9 @@ struct IntegerToStringTranslator: TopLevelTranslator {
             .sink { (result) in print(result) }
 ```
 
+Please see documents bellow if you'd know more details:
+https://yosshi4486.github.io/Translate/
+
 ## Requirements
 - iOS13, macOS10.15, tvOS 13, or watchOS 6 later
 - Swift 5.2
