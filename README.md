@@ -27,6 +27,7 @@ struct IntegerToStringTranslator: TopLevelTranslator {
 ```
 
 Please see documents bellow if you'd know more details:
+
 https://yosshi4486.github.io/Translate/
 
 ## Requirements
