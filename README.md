@@ -1,4 +1,6 @@
 # Translate
+![Swift](https://github.com/yosshi4486/Translate/workflows/Swift/badge.svg)
+
 A publisher that translates all elements from the upstream publisher with provided translator.
 
 ## Goal
